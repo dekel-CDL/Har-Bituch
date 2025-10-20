@@ -169,19 +169,18 @@
       <div class="form-header">בדיקת תיק ביטוח — דקה למילוי, אלפי שקלים לחיסכון</div>
       <div class="form-subheader">בדיקה חינם וללא התחייבות - מענה מהיר</div>
       <form id="contactForm" action="https://formspree.io/f/mblzqwgy" method="POST">
-  <label>שם מלא</label>
-  <input type="text" name="full_name" placeholder="שם פרטי ומשפחה" required>
-  <label>תעודת זהות</label>
-  <input type="text" name="id_number" placeholder="ספרות בלבד" required>
-  <label>טלפון נייד</label>
-  <input type="tel" name="phone" placeholder="מספר טלפון נייד" required>
-  <label>תאריך לידה</label>
-  <input type="date" name="birth_date" required>
-  <label>תאריך הנפקה</label>
-  <input type="date" name="id_issue_date" required>
-  <button type="submit">שלח לבדיקה</button>
-</form>
-
+        <label>שם מלא</label>
+        <input type="text" name="name" placeholder="שם פרטי ומשפחה" required>
+        <label>תעודת זהות</label>
+        <input type="text" name="id_number" placeholder="ספרות בלבד" required>
+        <label>טלפון נייד</label>
+        <input type="tel" name="phone" placeholder="מספר טלפון נייד" required>
+        <label>תאריך לידה</label>
+        <input type="date" name="birth_date" required>
+        <label>תאריך הנפקה</label>
+        <input type="date" name="id_issue_date" required>
+        <button type="submit">שלח לבדיקה</button>
+      </form>
       <div class="loading" id="loading">
         <div class="spinner"></div>
         <p>המערכת מבצעת בדיקה במאגרי המידע... אנא המתן כמה שניות.</p>
