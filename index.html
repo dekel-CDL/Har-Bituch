@@ -6,158 +6,35 @@
   <title>בדיקת תיק ביטוח — ייעוץ והדרכות</title>
   <style>
     body {
-      background-color: #0b0b0b;
-      font-family: 'Heebo', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #fff;
-      direction: rtl;
+      background-color:#0b0b0b;
+      font-family:'Heebo',sans-serif;
+      margin:0;
+      padding:0;
+      color:#fff;
+      direction:rtl;
     }
-    .wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
-    }
-    .logo img {
-      max-width: 180px;
-      margin-bottom: 20px;
-    }
-    .form-box {
-      background-color: #111;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 480px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
-      animation: fadeIn 1s ease-in-out;
-    }
-    .form-header {
-      background-color: #f0c93b;
-      color: #000;
-      padding: 15px 20px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .form-subheader {
-      color: #ccc;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-    form {
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-    }
-    label {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #ddd;
-      text-align: right;
-    }
-    input {
-      margin-top: 8px;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      background-color: #222;
-      color: #fff;
-      font-size: 15px;
-    }
-    input[type="date"] {
-      color-scheme: dark;
-    }
-    button {
-      background: linear-gradient(90deg, #ff9900, #ffcc00);
-      color: #000;
-      font-weight: bold;
-      border: none;
-      padding: 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      margin-top: 25px;
-      font-size: 16px;
-      transition: transform 0.2s ease;
-    }
-    button:hover {
-      transform: scale(1.03);
-    }
-    .footer-note {
-      text-align: center;
-      font-size: 12px;
-      color: #777;
-      margin-bottom: 15px;
-    }
-    .loading {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: #ffd700;
-      font-size: 18px;
-    }
-    .spinner {
-      border: 4px solid #333;
-      border-top: 4px solid #ffd700;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 15px;
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-    .popup.show {
-      display: flex;
-      opacity: 1;
-    }
-    .popup-content {
-      background: #111;
-      padding: 25px 30px;
-      border-radius: 10px;
-      text-align: center;
-      color: #fff;
-      max-width: 380px;
-      animation: fadeIn 0.8s ease;
-    }
-    .popup-content h2 {
-      color: #ffd700;
-    }
-    .popup-content a {
-      display: inline-block;
-      margin-top: 15px;
-      background: #25D366;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .popup-content a:hover {
-      background: #20b358;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+    .wrapper{display:flex;justify-content:center;align-items:center;flex-direction:column;min-height:100vh;text-align:center;}
+    .logo img{max-width:180px;margin-bottom:20px;}
+    .form-box{background-color:#111;border-radius:15px;width:90%;max-width:480px;box-shadow:0 0 25px rgba(0,0,0,0.6);overflow:hidden;animation:fadeIn 1s ease-in-out;}
+    .form-header{background-color:#f0c93b;color:#000;padding:15px 20px;font-weight:bold;font-size:18px;}
+    .form-subheader{color:#ccc;margin-top:10px;font-size:14px;}
+    form{padding:25px;display:flex;flex-direction:column;}
+    label{margin-top:15px;font-weight:bold;color:#ddd;text-align:right;}
+    input{margin-top:8px;padding:10px;border-radius:8px;border:none;background-color:#222;color:#fff;font-size:15px;}
+    input[type="date"]{color-scheme:dark;}
+    button{background:linear-gradient(90deg,#ff9900,#ffcc00);color:#000;font-weight:bold;border:none;padding:12px;border-radius:999px;cursor:pointer;margin-top:25px;font-size:16px;transition:transform 0.2s ease;}
+    button:hover{transform:scale(1.03);}
+    .footer-note{text-align:center;font-size:12px;color:#777;margin-bottom:15px;}
+    .loading{display:none;align-items:center;justify-content:center;flex-direction:column;color:#ffd700;font-size:18px;}
+    .spinner{border:4px solid #333;border-top:4px solid #ffd700;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;margin-bottom:15px;}
+    .popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:999;opacity:0;transition:opacity 0.6s ease;}
+    .popup.show{display:flex;opacity:1;}
+    .popup-content{background:#111;padding:25px 30px;border-radius:10px;text-align:center;color:#fff;max-width:380px;animation:fadeIn 0.8s ease;}
+    .popup-content h2{color:#ffd700;}
+    .popup-content a{display:inline-block;margin-top:15px;background:#25D366;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold;}
+    .popup-content a:hover{background:#20b358;}
+    @keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+    @keyframes fadeIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
   </style>
 </head>
 <body>
@@ -168,9 +45,11 @@
     <div class="form-box">
       <div class="form-header">בדיקת תיק ביטוח — דקה למילוי, אלפי שקלים לחיסכון</div>
       <div class="form-subheader">בדיקה חינם וללא התחייבות - מענה מהיר</div>
-      <form id="contactForm" action="https://formspree.io/f/mblzqwgy" method="POST">
+
+      <!-- ✅ שולח רק למייל שלך -->
+      <form id="contactForm" action="https://formspree.io/f/xblzbgeo" method="POST">
         <label>שם מלא</label>
-        <input type="text" name="name" placeholder="שם פרטי ומשפחה" required>
+        <input type="text" name="full_name" placeholder="שם פרטי ומשפחה" required>
         <label>תעודת זהות</label>
         <input type="text" name="id_number" placeholder="ספרות בלבד" required>
         <label>טלפון נייד</label>
@@ -181,6 +60,7 @@
         <input type="date" name="id_issue_date" required>
         <button type="submit">שלח לבדיקה</button>
       </form>
+
       <div class="loading" id="loading">
         <div class="spinner"></div>
         <p>המערכת מבצעת בדיקה במאגרי המידע... אנא המתן כמה שניות.</p>
@@ -193,38 +73,48 @@
     <div class="popup-content">
       <h2>נמצא כפל ביטוח!</h2>
       <p>נראה שיש לך כפל ביטוחים. נציג מטעמנו יחזור אליך בהקדם.</p>
-      <a href="https://wa.me/972547768879?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%9E%D7%99%D7%9C%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%98%D7%95%D7%A4%D7%A1%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%9B%D7%A4%D7%9C%20%D7%91%D7%99%D7%98%D7%95%D7%97%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%94%20%D7%A7%D7%A6%D7%A8%D7%94." target="_blank">לבירור מידי לחץ כאן</a><br>
-      <button onclick="closePopup()" style="margin-top:15px; background:#ffcc00; color:#000; border:none; padding:8px 15px; border-radius:8px; cursor:pointer;">סגור</button>
+      <button onclick="closePopup()" style="margin-top:15px;background:#ffcc00;color:#000;border:none;padding:8px 15px;border-radius:8px;cursor:pointer;">סגור</button>
     </div>
   </div>
 
   <script>
-    const form = document.getElementById('contactForm');
-    const popup = document.getElementById('popup');
-    const loading = document.getElementById('loading');
+    const form=document.getElementById('contactForm');
+    const popup=document.getElementById('popup');
+    const loading=document.getElementById('loading');
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit',async(e)=>{
       e.preventDefault();
-      form.style.display = 'none';
-      loading.style.display = 'flex';
+      form.style.display='none';
+      loading.style.display='flex';
 
-      const data = new FormData(form);
-      await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+      const data=new FormData(form);
 
-      setTimeout(() => {
-        loading.style.display = 'none';
-        popup.classList.add('show');
-        form.reset();
-      }, 6000);
+      try{
+        const response=await fetch(form.action,{
+          method:form.method,
+          body:data,
+          headers:{'Accept':'application/json'}
+        });
+
+        if(response.ok){
+          setTimeout(()=>{
+            loading.style.display='none';
+            popup.classList.add('show');
+            form.reset();
+          },5000);
+        }else{
+          throw new Error('שגיאה בשליחה');
+        }
+      }catch(error){
+        loading.style.display='none';
+        alert('❌ אירעה שגיאה בשליחה. נסה שוב.');
+        form.style.display='flex';
+      }
     });
 
-    function closePopup() {
+    function closePopup(){
       popup.classList.remove('show');
-      form.style.display = 'flex';
+      form.style.display='flex';
     }
   </script>
 </body>
